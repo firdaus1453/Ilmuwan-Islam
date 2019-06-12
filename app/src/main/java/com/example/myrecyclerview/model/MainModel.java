@@ -1,6 +1,10 @@
 package com.example.myrecyclerview.model;
 
-public class MainModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class MainModel implements Parcelable {
+
     private String name, year, desc, photo;
 
     public String getName() {
@@ -34,4 +38,39 @@ public class MainModel {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.year);
+        dest.writeString(this.desc);
+        dest.writeString(this.photo);
+    }
+
+    public MainModel() {
+    }
+
+    protected MainModel(Parcel in) {
+        this.name = in.readString();
+        this.year = in.readString();
+        this.desc = in.readString();
+        this.photo = in.readString();
+    }
+
+    public static final Parcelable.Creator<MainModel> CREATOR = new Parcelable.Creator<MainModel>() {
+        @Override
+        public MainModel createFromParcel(Parcel source) {
+            return new MainModel(source);
+        }
+
+        @Override
+        public MainModel[] newArray(int size) {
+            return new MainModel[size];
+        }
+    };
 }

@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.myrecyclerview.R;
 import com.example.myrecyclerview.model.MainModel;
 
@@ -18,6 +17,7 @@ import java.util.ArrayList;
 
 public class ListMainAdapter extends RecyclerView.Adapter<ListMainAdapter.ViewHolder> {
     private Context context;
+    private ArrayList<MainModel> listMain;
 
     public ArrayList<MainModel> getListMain() {
         return listMain;
@@ -26,8 +26,6 @@ public class ListMainAdapter extends RecyclerView.Adapter<ListMainAdapter.ViewHo
     public void setListMain(ArrayList<MainModel> listMain) {
         this.listMain = listMain;
     }
-
-    private ArrayList<MainModel> listMain;
 
     public ListMainAdapter(Context context) {
         this.context = context;
@@ -48,7 +46,6 @@ public class ListMainAdapter extends RecyclerView.Adapter<ListMainAdapter.ViewHo
 
         Glide.with(context)
                 .load(getListMain().get(i).getPhoto())
-                .apply(new RequestOptions().override(55, 55))
                 .into(viewHolder.imgPhoto);
     }
 
