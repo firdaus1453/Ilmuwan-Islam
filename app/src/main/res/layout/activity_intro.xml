@@ -8,7 +8,8 @@
     android:background="@drawable/bg">
 
     <Button
-        android:id="@+id/button"
+        android:fontFamily="@font/roboto_bold"
+        android:id="@+id/btn_start"
         android:background="@drawable/bg_button_intro"
         android:layout_width="220dp"
         android:layout_height="40dp"
@@ -28,7 +29,7 @@
         android:onClick="start"/>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/img_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -43,7 +44,8 @@
         app:srcCompat="@drawable/ic_title" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:fontFamily="@font/roboto_regular"
+        android:id="@+id/txt_intro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -54,10 +56,10 @@
         android:textColor="#DDDDDD"
         android:textSize="16sp"
         app:fontFamily="sans-serif-light"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/btn_start"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/img_logo"
         app:layout_constraintVertical_bias="0.582" />
 </android.support.constraint.ConstraintLayout>

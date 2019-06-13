@@ -1,13 +1,17 @@
 package com.example.myrecyclerview.main;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.example.myrecyclerview.R;
 import com.example.myrecyclerview.detail.DetailActivity;
@@ -19,18 +23,37 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView rvMain;
+    private SearchView srcView;
+    private TextView titleMain, txtFooter;
     private ArrayList<MainModel> list = new ArrayList<>();
+    Animation btt,ttb;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        srcView = findViewById(R.id.searchView);
+        titleMain = findViewById(R.id.txt_main);
+        txtFooter = findViewById(R.id.txt_footer);
         rvMain = findViewById(R.id.rv_main);
         rvMain.setHasFixedSize(true);
 
         list.addAll(MainData.getListData());
         showRecyclerList();
+
+        // load animation
+        btt = AnimationUtils.loadAnimation(this, R.anim.btt);
+        ttb = AnimationUtils.loadAnimation(this, R.anim.ttb);
+
+        // run anim
+        srcView.startAnimation(ttb);
+        titleMain.startAnimation(ttb);
+        rvMain.startAnimation(btt);
+        txtFooter.startAnimation(btt);
+
+
     }
 
     private void showRecyclerList() {

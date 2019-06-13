@@ -17,7 +17,9 @@
         tools:srcCompat="@tools:sample/avatars[11]" />
 
     <TextView
+        android:fontFamily="@font/roboto_bold"
         android:id="@+id/tv_name"
+        android:textColor="@color/colorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -32,7 +34,9 @@
         tools:text="Ibn Sina" />
 
     <TextView
+        android:fontFamily="@font/roboto_thin"
         android:id="@+id/tv_year"
+        android:textSize="12sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -45,6 +49,7 @@
         tools:text="1293 -1123" />
 
     <TextView
+        android:fontFamily="@font/roboto_regular"
         android:id="@+id/tv_desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
